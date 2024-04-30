@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "SpsNoteType.json",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "array",
+      "items": {
+        "$ref": "TextType.json"
+      },
+      "minItems": 1
+    },
+    "contentCode": {
+      "type": "array",
+      "items": {
+        "$ref": "CodeType.json"
+      }
+    },
+    "subject": {
+      "$ref": "TextType.json"
+    },
+    "subjectCode": {
+      "$ref": "CodeType.json"
+    }
+  },
+  "required": [
+    "content"
+  ]
+}
