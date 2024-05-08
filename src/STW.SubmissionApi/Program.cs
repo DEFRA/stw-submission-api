@@ -1,5 +1,3 @@
-using src.HealthChecks;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,7 +6,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddHealthChecks();
-
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -24,6 +21,6 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
-app.MapHealthChecks("/admin/health", HealthCheckOptionsBuilder.Build()).AllowAnonymous();
+app.MapHealthChecks("/admin/health").AllowAnonymous();
 
 app.Run();

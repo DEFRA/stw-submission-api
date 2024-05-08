@@ -1,4 +1,4 @@
-namespace src.Controllers;
+namespace STW.SubmissionApi.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 
