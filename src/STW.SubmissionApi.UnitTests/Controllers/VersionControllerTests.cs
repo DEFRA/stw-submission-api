@@ -18,7 +18,7 @@ public class VersionControllerTests
     [TestMethod]
     public void Sample()
     {
-        // Arrange / Act
+        // Act
         var result = _systemUnderTest.Index();
 
         // Assert

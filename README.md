@@ -15,4 +15,4 @@ To run in locally in the stw-submission-api directory, execute this command in a
 dotnet run
 ```
 
-Following the execution of this command your API should be running on port `5012`
+Following the execution of this command your API should be running on port `5244`
