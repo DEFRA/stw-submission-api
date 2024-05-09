@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 [Route("/admin/version")]
 public class VersionController : ControllerBase
 {
+    public VersionController()
+    {
+    }
+
     [HttpGet]
     public string Index()
     {

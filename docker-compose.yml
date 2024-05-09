@@ -5,4 +5,4 @@ services:
       context: src
       dockerfile: ./STW.SubmissionApi/Dockerfile
     ports:
-      - "5244:80"
+      - "5244:8080"

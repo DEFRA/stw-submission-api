@@ -4,6 +4,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STW.SubmissionApi", "STW.SubmissionApi.csproj", "{EFF75935-5690-4B28-A21F-7452E9572B28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STW.SubmissionApi.UnitTests", "..\STW.SubmissionApi.UnitTests\STW.SubmissionApi.UnitTests.csproj", "{D49D55BC-B40B-428B-AEAD-B8B90993F1DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,5 +16,9 @@ Global
 		{EFF75935-5690-4B28-A21F-7452E9572B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFF75935-5690-4B28-A21F-7452E9572B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFF75935-5690-4B28-A21F-7452E9572B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D49D55BC-B40B-428B-AEAD-B8B90993F1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D49D55BC-B40B-428B-AEAD-B8B90993F1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D49D55BC-B40B-428B-AEAD-B8B90993F1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D49D55BC-B40B-428B-AEAD-B8B90993F1DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
