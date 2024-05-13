@@ -31,7 +31,7 @@ If not already installed, you will need:
 
 #### Steps
 
-1. Open terminal and `cd` into the `src/STW.StubApi.Presentation` directory
+1. Open terminal and `cd` into the `src/STW.SubmissionApi.Presentation` directory
 2. Run `dotnet run`
 
 Following the completion of the steps above, the application should now be running on the port specified in the console output.
