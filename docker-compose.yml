@@ -3,6 +3,6 @@ services:
   submission-api:
     build:
       context: src
-      dockerfile: ./STW.SubmissionApi/Dockerfile
+      dockerfile: ./STW.SubmissionApi.Presentation/Dockerfile
     ports:
       - "5244:8080"
