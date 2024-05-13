@@ -1,12 +1,16 @@
+using STW.SubmissionApi.Presentation.HealthChecks;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHealthChecks();
 builder.Services.AddControllers();
+
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -21,6 +25,8 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
-app.MapHealthChecks("/admin/health").AllowAnonymous();
+app.MapHealthChecks(
+    "/health",
+    HealthCheckOptionsBuilder.Build(builder.Configuration.GetValue<string>("HealthCheck:Version")));
 
 app.Run();
