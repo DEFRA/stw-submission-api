@@ -1,40 +1,50 @@
+namespace STW.SubmissionApi.Presentation.UnitTests.Services;
+
 using FluentAssertions;
-using JetBrains.Annotations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using NJsonSchema.Validation;
 using STW.SubmissionApi.Models;
-using STW.SubmissionApi.Services;
-
-namespace STW.SubmissionApi.UnitTests.Services;
+using STW.SubmissionApi.Presentation.Services;
 
 [TestClass]
-[TestSubject(typeof(ValidationService))]
-public class ValidationServiceTest
+public class ValidationServiceTests
 {
-    private readonly ValidationService _systemUnderTest = new();
+    private ValidationService _systemUnderTest;
+
+    [TestInitialize]
+    public void TestInitialize()
+    {
+        _systemUnderTest = new ValidationService();
+    }
 
     [TestMethod]
     public async Task Validate_ReturnsEmptyList_WhenValidationPasses()
     {
+        // Arrange
         var spsCertificate = await File.ReadAllTextAsync("TestData/minimalSpsCertificate.json");
 
+        // Act
         var result = await _systemUnderTest.Validate(spsCertificate);
 
+        // Assert
         result.Should().BeEmpty();
     }
 
     [TestMethod]
     public async Task Validate_ReturnsListOfErrors_WhenValidationFails()
     {
+        // Arrange
         var spsCertificateString = await File.ReadAllTextAsync("TestData/minimalSpsCertificate.json");
         var spsCertificate = JsonConvert.DeserializeObject<SpsCertificate>(spsCertificateString);
         spsCertificate!.SpsExchangedDocument.StatusCode.Value = "1";
         spsCertificate.SpsConsignment.MainCarriageSpsTransportMovement.First().Id.Value = string.Empty;
         spsCertificateString = JsonConvert.SerializeObject(spsCertificate);
 
+        // Act
         var result = await _systemUnderTest.Validate(spsCertificateString);
 
+        // Assert
         result.Should().SatisfyRespectively(
             error =>
             {

@@ -11,4 +11,10 @@
     <ItemGroup>
       <ProjectReference Include="..\STW.SubmissionApi.Presentation\STW.SubmissionApi.Presentation.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Update="TestData\**\*">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
 </Project>
