@@ -1,4 +1,4 @@
-# SWT Submission API
+# STW Submission API
 
 The Submission API is a .NET Core Web API that will receive, validate and place UNCEFACT payloads on an Azure Service Bus Queue.
 
