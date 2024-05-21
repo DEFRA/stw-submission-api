@@ -1,0 +1,332 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "allOf": [
+    {
+      "$ref": "../uncefact/SPSCertificate.json"
+    },
+    {
+      "properties": {
+        "spsConsignment": {
+          "properties": {
+            "availabilityDueDateTime": {
+              "required": [
+                "dateTime"
+              ]
+            },
+            "consignorSpsParty": {
+              "required": [
+                "id"
+              ]
+            },
+            "consigneeSpsParty": {
+              "required": [
+                "id"
+              ]
+            },
+            "deliverySpsParty": {
+              "required": [
+                "id"
+              ]
+            },
+            "includedSpsConsignmentItem": {
+              "items": {
+                "properties": {
+                  "includedSpsTradeLineItem": {
+                    "maxItems": 500,
+                    "items": {
+                      "properties": {
+                        "additionalInformationSpsNote": {
+                          "$ref": "definitions/AdditionalInformationSpsNote.json"
+                        },
+                        "applicableSpsClassification": {
+                          "$ref": "definitions/ApplicableSpsClassification.json"
+                        },
+                        "grossVolumeMeasure": {
+                          "properties": {
+                            "unitCode": {
+                              "enum": [
+                                "LTR",
+                                "MTQ"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "unitCode"
+                          ]
+                        },
+                        "grossWeightMeasure": {
+                          "properties": {
+                            "unitCode": {
+                              "enum": [
+                                "KGM"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "unitCode"
+                          ]
+                        },
+                        "netWeightMeasure": {
+                          "properties": {
+                            "unitCode": {
+                              "enum": [
+                                "KGM"
+                              ]
+                            },
+                            "value": {
+                              "minimum": 0.001,
+                              "multipleOf": 0.001
+                            }
+                          },
+                          "required": [
+                            "unitCode"
+                          ]
+                        },
+                        "netVolumeMeasure": {
+                          "properties": {
+                            "unitCode": {
+                              "enum": [
+                                "H87"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "unitCode"
+                          ]
+                        },
+                        "physicalSpsPackage": {
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "properties": {
+                              "levelCode": {
+                                "properties": {
+                                  "value": {
+                                    "enum": [
+                                      "4"
+                                    ]
+                                  }
+                                }
+                              },
+                              "itemQuantity": {
+                                "properties": {
+                                  "value": {
+                                    "minimum": 1
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "scientificName": {
+                          "minItems": 1,
+                          "maxItems": 1,
+                          "items": {
+                            "properties": {
+                              "value": {
+                                "minLength": 1
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "applicableSpsClassification",
+                        "originSpsCountry",
+                        "physicalSpsPackage",
+                        "scientificName"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "mainCarriageSpsTransportMovement": {
+              "minItems": 1,
+              "items": {
+                "properties": {
+                  "id": {
+                    "properties": {
+                      "schemeAgencyID": {
+                        "enum": [
+                          "GB"
+                        ]
+                      },
+                      "schemeID": {
+                        "enum": [
+                          "ship_imo_number_before_bcp",
+                          "train_identifier_before_bcp",
+                          "road_vehicle_registration_before_bcp",
+                          "airplane_flight_number_before_bcp",
+                          "ship_imo_number_after_bcp",
+                          "train_identifier_after_bcp",
+                          "road_vehicle_registration_after_bcp",
+                          "airplane_flight_number_after_bcp"
+                        ]
+                      },
+                      "value": {
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "schemeAgencyID",
+                      "schemeID"
+                    ]
+                  },
+                  "modeCode": {
+                    "properties": {
+                      "value": {
+                        "enum": [
+                          "0",
+                          "1",
+                          "2",
+                          "3",
+                          "4"
+                        ]
+                      }
+                    }
+                  },
+                  "usedSpsTransportMeans": {
+                    "properties": {
+                      "name": {
+                        "properties": {
+                          "value": {
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            },
+            "unloadingBaseportSpsLocation": {
+              "properties": {
+                "id": {
+                  "properties": {
+                    "schemeID": {
+                      "enum": [
+                        "un_locode",
+                        "IPAFFS_POE"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schemeID"
+                  ]
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "utilizedSpsTransportEquipment": {
+              "items": {
+                "properties": {
+                  "id": {
+                    "properties": {
+                      "value": {
+                        "minLength": 1,
+                        "maxLength": 32
+                      },
+                      "schemeID": {
+                        "enum": [
+                          "container_number"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "schemeID"
+                    ]
+                  },
+                  "affixedSpsSeal": {
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "properties": {
+                            "value": {
+                              "minLength": 1,
+                              "maxLength": 32
+                            },
+                            "schemeID": {
+                              "enum": [
+                                "seal_number",
+                                "official_seal_number"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "schemeID"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "affixedSpsSeal"
+                ]
+              }
+            }
+          },
+          "required": [
+            "exportSpsCountry",
+            "unloadingBaseportSpsLocation",
+            "consignorSpsParty",
+            "consigneeSpsParty",
+            "deliverySpsParty",
+            "mainCarriageSpsTransportMovement"
+          ]
+        },
+        "spsExchangedDocument": {
+          "properties": {
+            "id": {
+              "properties": {
+                "value": {
+                  "minLength": 1,
+                  "maxLength": 90
+                }
+              }
+            },
+            "includedSpsNote": {
+              "$ref": "definitions/IncludedSpsNote.json"
+            },
+            "signatorySpsAuthentication": {
+              "items": {
+                "properties": {
+                  "includedSpsClause": {
+                    "$ref": "definitions/IncludedSpsClause.json"
+                  }
+                }
+              }
+            },
+            "statusCode": {
+              "properties": {
+                "value": {
+                  "enum": [
+                    "47"
+                  ]
+                }
+              }
+            },
+            "typeCode": {
+              "properties": {
+                "value": {
+                  "enum": [
+                    "636"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
