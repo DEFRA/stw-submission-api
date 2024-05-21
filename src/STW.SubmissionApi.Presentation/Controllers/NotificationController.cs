@@ -11,10 +11,12 @@ using Services;
 public class NotificationController : ControllerBase
 {
     private readonly IValidationService _validationService;
+    private readonly IMessagingService _messagingService;
 
-    public NotificationController(IValidationService validationService)
+    public NotificationController(IValidationService validationService, IMessagingService messagingService)
     {
         _validationService = validationService;
+        _messagingService = messagingService;
     }
 
     [HttpPost]
@@ -30,6 +32,8 @@ public class NotificationController : ControllerBase
 
             return apiBehaviourOptions.Value.InvalidModelStateResponseFactory(ControllerContext);
         }
+
+        await _messagingService.SendMessageAsync(rawRequestBody);
 
         return Accepted(
             new SubmissionAcceptedDto
