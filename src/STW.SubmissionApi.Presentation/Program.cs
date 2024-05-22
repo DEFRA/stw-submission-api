@@ -1,4 +1,6 @@
+using STW.SubmissionApi.Presentation.Extensions;
 using STW.SubmissionApi.Presentation.HealthChecks;
+using STW.SubmissionApi.Presentation.Models;
 using STW.SubmissionApi.Presentation.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +13,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IValidationService, ValidationService>();
-
 builder.Services.AddHealthChecks();
+
+builder.Services.RegisterAzureServiceBus(builder.Configuration);
+
+builder.Services.RegisterServices();
+
+builder.Services.RegisterOptions(builder.Configuration);
 
 var app = builder.Build();
 
