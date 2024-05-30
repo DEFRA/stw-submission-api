@@ -16,7 +16,7 @@
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
         <Exec WorkingDirectory="$(ProjectDir)"
               EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development"
-              Command="$(NSwagExe_Net80) jsonschema2csclient /name:SpsCertificate /namespace:STW.SubmissionApi.Models /input:$(ProjectDir)Schemas/uncefact/SPSCertificate.json /output:$(ProjectDir)Models/SpsCertificate.cs"/>
+              Command="$(NSwagExe_Net80) jsonschema2csclient /name:SpsCertificate /namespace:STW.SubmissionApi.Presentation.Models /input:$(ProjectDir)Schemas/uncefact/SPSCertificate.json /output:$(ProjectDir)Models/SpsCertificate.cs /ArrayType:System.Collections.Generic.IList /ArrayBaseType:System.Collections.Generic.List /ArrayInstanceType:System.Collections.Generic.List"/>
     </Target>
 
     <ItemGroup>
