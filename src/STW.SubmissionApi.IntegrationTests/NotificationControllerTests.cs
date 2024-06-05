@@ -1,12 +1,12 @@
+namespace STW.SubmissionApi.IntegrationTests;
+
 using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using STW.SubmissionApi.Presentation.Models;
-
-namespace STW.SubmissionApi.IntegrationTests;
+using Presentation.Models;
 
 [TestClass]
 public class NotificationControllerTests

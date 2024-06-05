@@ -1,10 +1,11 @@
+namespace STW.SubmissionApi.Presentation.UnitTests.Services;
+
 using Azure.Messaging.ServiceBus;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using STW.SubmissionApi.Presentation.Options;
-using STW.SubmissionApi.Presentation.Services;
-
-namespace STW.SubmissionApi.Presentation.UnitTests.Services;
+using Options;
+using Presentation.Services;
 
 [TestClass]
 public class MessagingServiceTests
@@ -21,7 +22,7 @@ public class MessagingServiceTests
         _serviceBusClientMock.Setup(serviceBusClient => serviceBusClient.CreateSender(It.IsAny<string>()))
             .Returns(_serviceBusSenderMock.Object);
         _systemUnderTest = new MessagingService(
-            _serviceBusClientMock.Object, Microsoft.Extensions.Options.Options.Create(new ServiceBusOptions()));
+            _serviceBusClientMock.Object, Options.Create(new ServiceBusOptions()));
     }
 
     [TestMethod]

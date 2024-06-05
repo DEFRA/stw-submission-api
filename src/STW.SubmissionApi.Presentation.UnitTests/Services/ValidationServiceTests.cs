@@ -1,11 +1,11 @@
+namespace STW.SubmissionApi.Presentation.UnitTests.Services;
+
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Models;
 using Newtonsoft.Json;
 using NJsonSchema.Validation;
-using STW.SubmissionApi.Presentation.Models;
-using STW.SubmissionApi.Presentation.Services;
-
-namespace STW.SubmissionApi.Presentation.UnitTests.Services;
+using Presentation.Services;
 
 [TestClass]
 public class ValidationServiceTests
