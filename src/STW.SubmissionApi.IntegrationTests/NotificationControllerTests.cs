@@ -5,7 +5,6 @@ using System.Net.Http.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Models;
 using Newtonsoft.Json;
 using Presentation.Models;
 

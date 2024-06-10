@@ -1,8 +1,8 @@
+namespace STW.SubmissionApi.Presentation.Services;
+
 using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.Options;
-using STW.SubmissionApi.Presentation.Options;
-
-namespace STW.SubmissionApi.Presentation.Services;
+using Options;
 
 public class MessagingService : IMessagingService
 {

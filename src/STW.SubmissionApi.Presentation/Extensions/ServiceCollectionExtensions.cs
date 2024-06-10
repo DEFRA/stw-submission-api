@@ -1,8 +1,8 @@
-using Microsoft.Extensions.Azure;
-using STW.SubmissionApi.Presentation.Options;
-using STW.SubmissionApi.Presentation.Services;
-
 namespace STW.SubmissionApi.Presentation.Extensions;
+
+using Microsoft.Extensions.Azure;
+using Options;
+using Services;
 
 public static class ServiceCollectionExtensions
 {

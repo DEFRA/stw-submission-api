@@ -1,7 +1,5 @@
 using STW.SubmissionApi.Presentation.Extensions;
 using STW.SubmissionApi.Presentation.HealthChecks;
-using STW.SubmissionApi.Presentation.Models;
-using STW.SubmissionApi.Presentation.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
